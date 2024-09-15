@@ -19,6 +19,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.exclusions=./src/**/*.test.js
-            -Dsonar.coverage.exclusions=./src/**/*.test.js
+            -Dsonar.coverage.exclusions=src/**/*.test.js
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
