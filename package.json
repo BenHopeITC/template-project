@@ -6,7 +6,8 @@
 	"scripts": {
 		"start": "node src/index.js",
 		"start:local": "nodemon src/index.js | pino-pretty",
-		"test": "jest --coverage",
+		"test": "jest - --watch",
+		"test:coverage": "jest - --coverage",
 		"format:check": "prettier --check .",
 		"format": "prettier --write .",
 		"lint:check": "eslint .",
