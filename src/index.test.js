@@ -24,3 +24,24 @@ describe('GET /', () => {
 		expect(res.statusCode).to.equal(200);
 	});
 });
+
+describe('GET /fail', () => {
+	let server;
+
+	beforeEach(async () => {
+		server = await init();
+	});
+
+	afterEach(async () => {
+		await server.stop();
+	});
+
+	it('responds with 500', async () => {
+		const res = await server.inject({
+			// documentation says this needs @hapi/shot, but it was successful without it
+			method: 'get',
+			url: '/fail'
+		});
+		expect(res.statusCode).to.equal(500);
+	});
+});
