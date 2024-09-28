@@ -24,6 +24,14 @@ server.route({
 	}
 });
 
+server.route({
+	method: 'GET',
+	path: '/notcoveredbytests',
+	handler: (request, h) => {
+		return h.response('Tutorial: Testing SonarCloud 1!');
+	}
+});
+
 exports.init = async () => {
 	await server.initialize();
 	return server;
