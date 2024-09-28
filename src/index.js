@@ -12,7 +12,7 @@ server.route({
 	path: '/',
 	handler: (request, h) => {
 		console.log(`CONSOLE: Server received call using '${request.method}' method. Sonar shouldn't like this!`);
-		return h.response('Tutorial: Testing 11!');
+		return h.response('Tutorial: Testing 12!');
 	}
 });
 
@@ -32,12 +32,12 @@ server.route({
 	}
 });
 
-exports.init = async () => {
+const init = async () => {
 	await server.initialize();
 	return server;
 };
 
-exports.start = async () => {
+const start = async () => {
 	await server.start();
 	console.log(`Server running at: ${server.info.uri}`);
 	return server;
@@ -47,3 +47,14 @@ process.on('unhandledRejection', (err) => {
 	console.log(err);
 	process.exit(1);
 });
+
+// Export the functions so they can be used in other files (like tests)
+module.exports = {
+    init,
+    start
+};
+
+// Only start the server if this file is executed directly, not when it's required (like in tests)
+if (require.main === module) {
+	start()
+}
