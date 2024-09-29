@@ -12,7 +12,7 @@ server.route({
 	path: '/',
 	handler: (request, h) => {
 		console.log(`CONSOLE: Server received call using '${request.method}' method. Sonar shouldn't like this!`);
-		return h.response('Tutorial: Testing Merge 13!');
+		return h.response('Tutorial: Testing Merge Conflicts 14!');
 	}
 });
 
